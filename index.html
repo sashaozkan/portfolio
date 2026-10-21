@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Александра Озкан, шеф-редактор</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #fff;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .page {
+      width: 100%;
+      padding-top: 56px;
+      padding-bottom: 120px;
+    }
+
+    .column {
+      width: 760px;
+      max-width: calc(100vw - 40px);
+      margin-left: 30vw;
+    }
+
+    h1 {
+      margin: 0 0 36px;
+      font-size: clamp(36px, 4.2vw, 52px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 400;
+    }
+
+    .photo-image {
+      display: block;
+      width: 52%;
+      height: auto;
+      margin-bottom: 48px;
+    }
+
+    section {
+      margin-top: 88px;
+    }
+        .work-heading {
+      margin: 0 0 16px;
+      font-size: 30px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .work-heading + section {
+      margin-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 400;
+    }
+
+    .dates {
+      font-weight: 400;
+    }
+
+    p,
+    li {
+      font-size: 20px;
+      line-height: 1.38;
+    }
+
+    p {
+      margin: 0 0 20px;
+    }
+
+    .project-note {
+      margin: 16px 0 28px 32px;
+      padding-left: 16px;
+      border-left: 1px solid #111;
+      font-size: 18px;
+      line-height: 1.34;
+      font-style: italic;
+    }
+
+    .plain-list {
+      list-style: none;
+      margin: 0 0 20px;
+      padding-left: 32px;
+    }
+
+    .plain-list li {
+      margin-bottom: 8px;
+    }
+
+        a {
+      color: inherit;
+      text-decoration: none;
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.22),
+        rgba(0, 0, 0, 0.22)
+      );
+      background-size: 100% 0.5px;
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+    }
+        .shots {
+      margin: 36px 0 28px;
+    }
+
+    .shots-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .shot {
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+      background: #f1f1f1;
+      color: #777;
+    }
+
+    .shot-wide {
+      min-height: 380px;
+    }
+
+
+    .shot-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .shot-caption {
+      margin: 8px 0 0;
+      font-size: 16px;
+      line-height: 1.3;
+      color: #555;
+    }
+
+    .mygadget-example {
+      width: 72%;
+    }
+
+    .shot-image {
+      cursor: zoom-in;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      overflow: auto;
+      background: rgba(255, 255, 255, 0);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        background 260ms ease,
+        opacity 260ms ease,
+        visibility 0s linear 260ms;
+    }
+
+    .lightbox.open {
+      background: rgba(255, 255, 255, 0.76);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition:
+        background 260ms ease,
+        opacity 260ms ease,
+        visibility 0s;
+    }
+
+    .lightbox-content {
+      position: relative;
+      width: min(1000px, 86vw);
+      margin: auto;
+      background: #fff;
+      padding: 12px;
+      box-shadow: 0 12px 42px rgba(0, 0, 0, 0.13);
+      opacity: 0;
+      transform: translateY(22px) scale(0.97);
+      transition:
+        transform 320ms cubic-bezier(.22, .8, .32, 1),
+        opacity 240ms ease;
+    }
+
+    .lightbox.open .lightbox-content {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .lightbox-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 82vh;
+      object-fit: contain;
+      cursor: zoom-out;
+    }
+
+    .lightbox.long-image {
+      align-items: flex-start;
+    }
+
+    .lightbox.long-image .lightbox-content {
+      width: min(1200px, 92vw);
+      margin-top: 28px;
+      margin-bottom: 28px;
+    }
+
+    .lightbox.long-image .lightbox-content img {
+      max-height: none;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      width: 32px;
+      height: 32px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      font-size: 25px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+    }
+          .contacts a {
+        color: inherit;
+        text-decoration: none;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22));
+        background-size: 100% 0.5px;
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+      }
+
+    @media (max-width: 760px) {
+      .page {
+        padding-top: 28px;
+      }
+      .photo-image {
+         width: 100%;
+      }
+
+      .mygadget-example {
+        width: 100%;
+      }
+
+      .column {
+        width: auto;
+        max-width: none;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .project-note {
+        margin-left: 20px;
+      }
+
+      .shots-two {
+        grid-template-columns: 1fr;
+      }
+      .experience p {
+         font-size: 18px;
+         line-height: 1.4;
+         margin: 0 0 24px;
+      }
+
+        .experience strong {
+          font-weight: 600;
+        }
+
+      p,
+      li {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="column">
+
+      <h1>Александра Озкан,<br>шеф&#8209;редактор</h1>
+
+      <img
+        class="photo-image"
+        src="images/1.jpg"
+        alt="Александра Озкан"
+      >
+     <h2 class="work-heading">Опыт работы</h2>
+      <section>
+        <h2>
+          Редактор Словаря-справочника проектировщика пользовательского интерфейса
+          <span class="dates">(сентябрь 2026 — ноябрь 2026)</span>
+        </h2>
+
+        <div class="project-note">
+          Справочник — страница с&nbsp;ёмким пояснением терминов из&nbsp;области дизайна интерфейсов.
+          Искать термин можно через строку поиска или ориентируясь по&nbsp;алфавиту.
+          Если термин сложный и&nbsp;требует длинного пояснения, к&nbsp;нему добавлена ссылка на&nbsp;статью.
+        </div>
+
+        <p>
+          За&nbsp;шесть недель вместе со&nbsp;вторым редактором собрали и&nbsp;подготовили справочник к&nbsp;выпуску:
+        </p>
+
+        <ul class="plain-list">
+          <li>
+            поговорили с&nbsp;заказчиком проекта и&nbsp;составили понимание задачи;
+          </li>
+          <li>
+            собрали перечень готовых материалов, которые уже можно включить в&nbsp;справочник,
+            и&nbsp;материалов, которые еще предстоит создать;
+          </li>
+          <li>
+            разделили материалы для&nbsp;написания на&nbsp;две категории:
+            а)&nbsp;те, которые точно нужно сделать к&nbsp;первой итерации и&nbsp;без которых справочник не&nbsp;будет иметь смысла;
+            б)&nbsp;те, которыми можно пожертвовать, чтобы выпустить справочник в&nbsp;срок.
+          </li>
+        </ul>
+
+        <p>
+          Я&nbsp;отвечала за&nbsp;большую часть работы с&nbsp;текстом:
+          написала четыре большие поясняющие статьи и&nbsp;около 100 коротких описаний терминов для&nbsp;главной страницы.
+        </p>
+
+        <div class="shots shots-two">
+          <img class="shot-image" src="images/2.png" alt="Скриншот Справочника">
+          <img class="shot-image" src="images/3.png" alt="Скриншот Справочника">
+        </div>
+
+        <p>
+          <a href="https://ilyabirman.ru/reference/"target="_blank" rel="noopener noreferrer">Посмотреть Справочник полностью</a>
+        </p>
+      </section>
+
+          <section>
+        <h2>
+          Шеф-редактор в&nbsp;My Gadget | IB Studio
+          <span class="dates">(май 2024 — настоящее время)</span>
+        </h2>
+
+        <div class="project-note">
+          Медиа о&nbspтехнике и&nbspмаркетинговое агентство для&nbspпродвижения брендов техники.
+        </div>
+
+        <p>
+          Агентство только пробовало себя в&nbsp;новых форматах, поэтому в&nbsp;процессах была путаница.
+          На&nbsp;согласование с&nbsp;клиентом уходили заходы в&nbsp;разных форматах от&nbsp;разных авторов,
+          даже если речь шла об&nbsp;одном формате статьи.
+          Кто-то понимал заход как короткую статью, кто-то — как идею в&nbsp;двух предложениях.
+        </p>
+
+        <p>
+          Чтобы упорядочить процесс, я собрала шаблоны для&nbsp;авторов в&nbsp;двух самых частых форматах:
+          Промостраницы Яндекса и&nbsp;обзоры.
+        </p>
+
+        <div class="shots shots-two">
+          <img class="shot-image" src="images/4.png" alt="Шаблон My Gadget">
+          <img class="shot-image" src="images/5.png" alt="Шаблон My Gadget">
+        </div>
+
+        <p>
+          В результате заходы стали писать быстрее и&nbsp;в&nbsp;одинаковом формате, а
+          редактор тратил меньше времени на&nbsp;исправление структуры.
+          Вот какие статьи стали получаться:
+        </p>
+
+        <div class="shots">
+          <img class="shot-image mygadget-example" src="images/6.png" alt="Пример статьи My Gadget">
+        </div>
+          <p>
+          <a href="https://conel-shop.promo.page/media/kupila-parovoi-pylesos-i-teper-dezinficiruiu-ves-dom-69020d2f68429758283516c5_0_0" target="_blank" rel="noopener noreferrer">Прочитать статью полностью</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>
+          Главный редактор в&nbsp;журнале «Кто студент»
+          <span class="dates">(январь 2026 — май 2026)</span>
+        </h2>
+        <div class="project-note">
+       «Кто студент» — учебный проект Школы Бюро Горбунова. Главного редактора выбирают на&nbsp;четыре месяца. Главред следит за&nbsp;регулярностью материалов, сопровождает авторов от&nbsp;идеи и&nbsp;структуры до&nbsp;публикации готового текста, ищет дизайнеров и&nbsp;корректоров, координирует работу команды и&nbsp;верстает готовые материалы на&nbsp;сайте.  
+        </div>
+
+        <p>
+          До&nbsp;меня журнал выходил силами двух-трех постоянных авторов и&nbsp;самого главреда.
+          Материал готовился впритык перед выпуском, выходил с&nbsp;ошибками и&nbsp;опечатками.
+          Когда я&nbsp;пришла на&nbsp;должность, в&nbsp;таблице редакции значились четыре статьи в&nbsp;работе,
+          десяток статей с&nbsp;непонятным статусом и&nbsp;только одна готовая — для&nbsp;ближайшего выпуска.
+        </p>
+
+        <div class="shots">
+          <img class="shot-image" src="images/7.png" alt="Данные редакции на момент начала моей работы">
+          <p class="shot-caption">Таблица редакции в&nbsp;начале моей работы</p>
+        </div>
+
+        <p>
+          К&nbsp;концу четвертого месяца я&nbsp;наладила стабильный поток выпусков и&nbsp;построила работу с&nbsp;запасом:
+          одновременно в&nbsp;работе было несколько материалов, а&nbsp;план публикаций составлялся на&nbsp;три недели вперед.
+          Для&nbsp;этого много общалась с&nbsp;авторами, рассказывала о&nbsp;преимуществах журнала,
+          помогала выбрать тему, о&nbsp;которой было бы&nbsp;интересно написать, и&nbsp;готовиться к&nbsp;первым интервью.
+        </p>
+
+        <div class="shots">
+          <img class="shot-image" src="images/8.png" alt="Данные редакции после четырех месяцев работы">
+          <p class="shot-caption">Таблица редакции после четырех месяцев работы</p>
+        </div>
+
+        <p>
+          Всего за&nbsp;4&nbsp;месяца я&nbsp;выпустила 20&nbsp;статей-лонгридов для&nbsp;начинающих digital-специалистов.
+        </p>
+
+        <div class="shots">
+          <img class="shot-image" src="images/9.png" alt="Пример статьи «Кто студент»">
+        </div>
+
+        <p>
+          <a href="https://ktostudent.ru/natalija-aleksa/"target="_blank" rel="noopener noreferrer">Прочитать статью полностью</a>
+        </p>
+      </section>
+
+    <section class="experience">
+  <h2>Места работы</h2>
+
+  <p>
+    <strong>My Gadget | IB Studio</strong>
+    <span class="dates">(май 2024 — настоящее время)</span><br>
+    Автор рейтингов, сценариев видео для&nbsp;YouTube, редактор, шеф-редактор.
+  </p>
+
+  <p>
+    <strong>Редакция «Рыба»</strong>
+    <span class="dates">(ноябрь 2023 — август 2025)</span><br>
+    Автор.
+  </p>
+</section>
+  <section class="contacts">
+  <p>
+    <a href="https://t.me/aleksandraozkan" target="_blank" rel="noopener noreferrer">
+    Телеграм: @aleksandraozkan
+    </a>
+  </p>
+</section>
+  </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" type="button" aria-label="Закрыть">×</button>
+      <img id="lightbox-image" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxContent = document.querySelector('.lightbox-content');
+
+    function openLightbox(image) {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+
+      const isLongArticle =
+        image.getAttribute('src') === 'images/2.png' ||
+        image.getAttribute('src') === 'images/3.png' ||
+        image.getAttribute('src') === 'images/6.png' ||
+        image.getAttribute('src') === 'images/9.png';
+
+      lightbox.classList.toggle('long-image', isLongArticle);
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      lightbox.scrollTop = 0;
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+
+      window.setTimeout(() => {
+        lightbox.classList.remove('long-image');
+      }, 320);
+    }
+
+    document.querySelectorAll('.shot-image').forEach((image) => {
+      image.addEventListener('click', () => openLightbox(image));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (event) => {
+      if (!lightboxContent.contains(event.target)) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
+
+</body>
+</html>
