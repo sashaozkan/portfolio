@@ -33,6 +33,15 @@
       margin-left: 30vw;
     }
 
+    .intro-text p {
+  line-height: 1.28;
+  margin-bottom: 12px;
+}
+
+.intro-text {
+  margin-bottom: 44px;
+}
+
     h1 {
       margin: 0 0 36px;
       font-size: clamp(36px, 4.2vw, 52px);
@@ -110,7 +119,7 @@
       margin-bottom: 8px;
     }
 
-        a {
+    a {
       color: inherit;
       text-decoration: none;
       background-image: linear-gradient(
@@ -121,7 +130,48 @@
       background-repeat: no-repeat;
       background-position: 0 100%;
     }
-        .shots {
+
+    a:hover {
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.45)
+      );
+    }
+
+    .resume-section {
+      margin-top: 72px;
+    }
+
+    .resume-section h2 {
+      margin-bottom: 24px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .resume-item {
+      margin-bottom: 34px;
+    }
+
+    .resume-item p {
+      margin-bottom: 10px;
+    }
+
+    .resume-item-title {
+      font-weight: 700;
+    }
+
+    .resume-dates {
+      font-style: italic;
+    }
+
+    .telegram-footer {
+      margin-top: 72px;
+      font-size: 20px;
+      line-height: 1.38;
+      color: #111;
+    }
+
+    .shots {
       margin: 36px 0 28px;
     }
 
@@ -252,14 +302,6 @@
       cursor: pointer;
       box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
     }
-          .contacts a {
-        color: inherit;
-        text-decoration: none;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22));
-        background-size: 100% 0.5px;
-        background-repeat: no-repeat;
-        background-position: 0 100%;
-      }
 
     @media (max-width: 760px) {
       .page {
@@ -316,6 +358,21 @@
         src="images/1.jpg"
         alt="Александра Озкан"
       >
+
+     <div class="intro-text">
+  <p>
+    Выпускаю рекламные материалы и&nbsp;статьи для&nbsp;медиа, руковожу редакцией из&nbsp;4&nbsp;человек.
+    До&nbsp;этого писала рекламные тексты, искала экспертов, брала интервью.
+  </p>
+
+  <p>
+    Моя суперсила: доводить задачу до&nbsp;конца, даже если это вне&nbsp;моей&nbsp;зоны ответственности.
+  </p>
+
+  <p>
+    Живу в&nbsp;Стамбуле, несколько месяцев в&nbsp;году бываю в&nbsp;России.
+  </p>
+</div>
      <h2 class="work-heading">Опыт работы</h2>
       <section>
         <h2>
@@ -382,7 +439,7 @@
 
         <p>
           Чтобы упорядочить процесс, я собрала шаблоны для&nbsp;авторов в&nbsp;двух самых частых форматах:
-          Промостраницы Яндекса и&nbsp;обзоры.
+          ПромоСтраницы Яндекса и&nbsp;обзоры.
         </p>
 
         <div class="shots shots-two">
@@ -416,29 +473,29 @@
         <p>
           До&nbsp;меня журнал выходил силами двух-трех постоянных авторов и&nbsp;самого главреда.
           Материал готовился впритык перед выпуском, выходил с&nbsp;ошибками и&nbsp;опечатками.
-          Когда я&nbsp;пришла на&nbsp;должность, в&nbsp;таблице редакции значились четыре статьи в&nbsp;работе,
+          Когда я&nbsp;пришла на&nbsp;должность, в&nbsp;таблице значились четыре статьи в&nbsp;работе,
           десяток статей с&nbsp;непонятным статусом и&nbsp;только одна готовая — для&nbsp;ближайшего выпуска.
         </p>
 
         <div class="shots">
           <img class="shot-image" src="images/7.png" alt="Данные редакции на момент начала моей работы">
-          <p class="shot-caption">Таблица редакции в&nbsp;начале моей работы</p>
+          <p class="shot-caption">Данные редакции на&nbsp;момент начала моей работы</p>
         </div>
 
         <p>
-          К&nbsp;концу четвертого месяца я&nbsp;наладила стабильный поток выпусков и&nbsp;построила работу с&nbsp;запасом:
+          За&nbsp;четыре месяца я&nbsp;наладила стабильный поток выпусков и&nbsp;работу с&nbsp;запасом:
           одновременно в&nbsp;работе было несколько материалов, а&nbsp;план публикаций составлялся на&nbsp;три недели вперед.
-          Для&nbsp;этого много общалась с&nbsp;авторами, рассказывала о&nbsp;преимуществах журнала,
-          помогала выбрать тему, о&nbsp;которой было бы&nbsp;интересно написать, и&nbsp;готовиться к&nbsp;первым интервью.
+          Для&nbsp;этого много общалась с&nbsp;авторами: рассказывала о&nbsp;преимуществах работы в&nbsp;журнале,
+          помогала выбрать тему, о&nbsp;которой было бы&nbsp;интересно написать, готовила к&nbsp;первым интервью.
         </p>
 
         <div class="shots">
           <img class="shot-image" src="images/8.png" alt="Данные редакции после четырех месяцев работы">
-          <p class="shot-caption">Таблица редакции после четырех месяцев работы</p>
+          <p class="shot-caption">Данные редакции после четырех месяцев работы</p>
         </div>
 
         <p>
-          Всего за&nbsp;4&nbsp;месяца я&nbsp;выпустила 20&nbsp;статей-лонгридов для&nbsp;начинающих digital-специалистов.
+          Всего за&nbsp;время главредства я&nbsp;выпустила 20&nbsp;статей-лонгридов для&nbsp;начинающих digital-специалистов.
         </p>
 
         <div class="shots">
@@ -450,29 +507,53 @@
         </p>
       </section>
 
-    <section class="experience">
-  <h2>Места работы</h2>
+    <section class="resume-section">
+      <h2>Образование</h2>
 
-  <p>
-    <strong>My Gadget | IB Studio</strong>
-    <span class="dates">(май 2024 — настоящее время)</span><br>
-    Автор рейтингов, сценариев видео для&nbsp;YouTube, редактор, шеф-редактор.
-  </p>
+      <p>
+        — Прошла три ступени
+        <a href="https://bureau.ru/school/editors/23/" target="_blank" rel="noopener noreferrer">Школы редакторов</a>.
+      </p>
+    </section>
 
-  <p>
-    <strong>Редакция «Рыба»</strong>
-    <span class="dates">(ноябрь 2023 — август 2025)</span><br>
-    Автор.
-  </p>
-</section>
-  <section class="contacts">
-  <p>
-    <a href="https://t.me/aleksandraozkan" target="_blank" rel="noopener noreferrer">
-    Телеграм: @aleksandraozkan
-    </a>
-  </p>
-</section>
-  </div>
+    <section class="resume-section">
+      <h2>Опыт работы</h2>
+
+      <div class="resume-item">
+        <p class="resume-item-title">Медиа о&nbsp;технике My Gadget</p>
+        <p class="resume-dates">Май 2024 года — настоящее время</p>
+        <p>
+          Пришла как автор и&nbsp;писала лонгриды, обзоры, рейтинги и&nbsp;сценарии видео.
+          За&nbsp;полтора года выросла до&nbsp;шеф-редактора, сейчас выпускаю рекламные материалы
+          вместе с&nbsp;командой из&nbsp;4 человек.
+        </p>
+      </div>
+
+      <div class="resume-item">
+        <p class="resume-item-title">Креативная редакция «Рыба», автор</p>
+        <p class="resume-dates">Ноябрь 2023 года — август 2025 года</p>
+        <p>
+          Писала статьи для&nbsp;ПромоСтраниц Яндекса, лонгриды для&nbsp;vc.ru,
+          предлагала темы материалов.
+        </p>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Личное</h2>
+
+      <p>
+        5 лет занимаюсь йогой, поэтому умею фокусироваться на&nbsp;важном
+        и&nbsp;сохранять концентрацию даже при высокой нагрузке.
+      </p>
+    </section>
+
+    <p class="telegram-footer">
+      Телеграм:
+      <a href="https://t.me/aleksandraozkan" target="_blank" rel="noopener noreferrer">t.me/aleksandraozkan</a>
+    </p>
+
+    </div>
   </main>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
